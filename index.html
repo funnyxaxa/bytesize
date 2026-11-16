@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bytesize — гайды и инструкции</title>
+<meta name="description" content="Нейросети, полезный софт и лайфхаки — инструкции коротко и без воды. Все гайды Bytesize в одном месте.">
+<meta property="og:title" content="Bytesize — гайды и инструкции">
+<meta property="og:description" content="Нейросети, полезный софт и лайфхаки — инструкции коротко и без воды.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c4dff'/><text x='50' y='72' font-size='64' font-family='Arial' font-weight='900' fill='white' text-anchor='middle'>B</text></svg>">
+<style>
+  :root {
+    --bg: #0f0c1d;
+    --card: #1a1630;
+    --card-hover: #221d3d;
+    --text: #f3f1ff;
+    --muted: #a59fc7;
+    --accent1: #8b5cf6;
+    --accent2: #22d3ee;
+    --free: #22c55e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 32px 16px 48px; }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .logo {
+    width: 84px; height: 84px; margin: 0 auto 14px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--accent1), #6366f1 55%, var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; font-weight: 900; color: #fff;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, .35);
+  }
+  h1 { font-size: 26px; font-weight: 800; }
+  .tagline { color: var(--muted); margin-top: 6px; font-size: 15px; }
+  .socials { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .socials a {
+    color: var(--text); text-decoration: none; font-size: 14px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--card); border: 1px solid #2c2650;
+  }
+  .socials a:hover { background: var(--card-hover); }
+
+  .section-title { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 26px 4px 12px; }
+
+  .card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid #2c2650;
+    border-radius: 18px; overflow: hidden; margin-bottom: 14px;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); background: var(--card-hover); border-color: #4c3f8f; }
+  .card img { width: 100%; aspect-ratio: 5 / 2; object-fit: cover; display: block; background: #241f40; }
+  .card-body { padding: 14px 16px 16px; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
+    background: rgba(139, 92, 246, .18); color: #c4b5fd;
+  }
+  .badge.free { background: rgba(34, 197, 94, .15); color: #86efac; }
+  .badge.hit { background: rgba(34, 211, 238, .15); color: #67e8f9; }
+  .card h2 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 14px; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; gap: 10px; }
+  .price { font-size: 20px; font-weight: 800; }
+  .price.free { color: var(--free); }
+  .views { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .btn {
+    margin-left: auto;
+    padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: 14px;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2)); color: #fff;
+    white-space: nowrap;
+  }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">B</div>
+    <h1>Bytesize</h1>
+    <div class="tagline">Нейросети, полезный софт и лайфхаки —<br>инструкции коротко и без воды</div>
+    <div class="socials">
+      <a href="https://t.me/bytesize_tech" target="_blank" rel="noopener">✈️ Telegram</a>
+      <a href="https://www.youtube.com/@bytesize_tech-q6v" target="_blank" rel="noopener">▶️ YouTube</a>
+      <a href="https://www.instagram.com/bytesize.tech.guides/" target="_blank" rel="noopener">📷 Instagram</a>
+    </div>
+  </header>
+
+  <div class="section-title">Бесплатно</div>
+  <div id="free"></div>
+
+  <div class="section-title">Гайды и курсы</div>
+  <div id="paid"></div>
+
+  <footer>
+    Оплата и доступ — через <a href="https://lava.top" target="_blank" rel="noopener">lava.top</a><br>
+    Вопросы — в <a href="https://t.me/bytesize_tech" target="_blank" rel="noopener">Telegram</a>
+  </footer>
+</div>
+
+<script>
+  // ===== Настройки =====
+  // Счётчик показывается на карточке только когда открытий >= SHOW_FROM,
+  // чтобы маленькие числа на старте не отпугивали.
+  const SHOW_FROM = 50;
+  const COUNTER_NS = "bytesize-vitrina";
+  const COUNTER_API = "https://abacus.jasoncameron.dev";
+
+  // ===== Продукты =====
+  // Чтобы добавить продукт — скопируйте блок и поменяйте поля.
+  // id — короткое латинское имя (по нему считается счётчик, после запуска не менять).
+  const products = [
+    {
+      id: "chatgpt-iphone",
+      free: true,
+      badge: "Бесплатно",
+      title: "Как поставить ChatGPT на iPhone в России",
+      text: "Пошагово: как скачать ChatGPT, если его нет в российском App Store. Без джейлбрейка.",
+      price: "0 ₽",
+      button: "Читать",
+      img: "",
+      url: "https://t.me/bytesize_tech/3"
+    },
+    {
+      id: "vpn-bot",
+      badge: "Самый полный",
+      hit: true,
+      title: "Своя веб-панель для VPN: 3x-ui + бот для оплат",
+      text: "Свой сервер на 3x-ui и готовый Telegram-бот: пробный доступ, оплата по СБП, автоматическая выдача конфига, продления и админка.",
+      price: "2 490 ₽",
+      button: "Подробнее",
+      img: "https://static.lava.top/20d8d41c-0ba4-4b3f-89d2-19b19d4822df",
+      url: "https://app.lava.top/products/c6064ba8-44b4-4306-a279-9e80c9df08fb"
+    },
+    {
+      id: "vpn-panel",
+      badge: "Для старта",
+      title: "Своя веб-панель для VPN: 3x-ui за 10 минут",
+      text: "Видеоинструкция от аренды сервера до готовой панели: команды, настройка безопасности, первый пользователь и подключение.",
+      price: "999 ₽",
+      button: "Подробнее",
+      img: "https://static.lava.top/d112e413-e2c0-402c-bf92-6013f90bcf67",
+      url: "https://app.lava.top/products/c8314148-7ee0-45fd-8f50-76834e063c4b"
+    },
+    {
+      id: "youtube-ai",
+      badge: "Курс",
+      title: "Видео для YouTube с нуля: от нейросети до монетизации",
+      text: "За 3 дня — первое видео без лица и голоса: промпты для Grok, монтаж в CapCut, оформление канала и чек-листы.",
+      price: "999 ₽",
+      button: "Подробнее",
+      img: "https://static.lava.top/60f9a8ee-8204-42f3-89a4-9d9148ac5fb8",
+      url: "https://app.lava.top/products/8553e3bb-a144-4d3a-90cf-f7a3c12770c2"
+    },
+    {
+      id: "mortgage-ai",
+      badge: "Экономия",
+      title: "Как сократить переплату по ипотеке или кредиту с помощью ИИ",
+      text: "Скриншот графика платежей + 4 готовых промпта для DeepSeek = расчёт переплаты и план досрочного погашения за 5 минут.",
+      price: "999 ₽",
+      button: "Подробнее",
+      img: "https://static.lava.top/06d73e06-b25e-4af0-a006-2614ad807651",
+      url: "https://app.lava.top/products/ed177bd9-e78e-4f90-97d7-1fa4d180a7ad"
+    }
+  ];
+
+  // ===== Отрисовка =====
+  function plural(n) {
+    const a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return "человек открыл";
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return "человека открыли";
+    return "человек открыли";
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  }
+
+  function card(p) {
+    const badgeClass = p.free ? "badge free" : p.hit ? "badge hit" : "badge";
+    return `
+      <a class="card" href="${esc(p.url)}" target="_blank" rel="noopener" data-id="${esc(p.id)}">
+        ${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">` : ""}
+        <div class="card-body">
+          <span class="${badgeClass}">${esc(p.badge)}</span>
+          <h2>${esc(p.title)}</h2>
+          <p>${esc(p.text)}</p>
+          <div class="card-foot">
+            <span class="price${p.free ? " free" : ""}">${esc(p.price)}</span>
+            <span class="views" data-views="${esc(p.id)}"></span>
+            <span class="btn">${esc(p.button)} →</span>
+          </div>
+        </div>
+      </a>`;
+  }
+
+  document.getElementById("free").innerHTML = products.filter(p => p.free).map(card).join("");
+  document.getElementById("paid").innerHTML = products.filter(p => !p.free).map(card).join("");
+
+  function showViews(id, value) {
+    const el = document.querySelector(`[data-views="${id}"]`);
+    if (el && typeof value === "number" && value >= SHOW_FROM) {
+      el.textContent = `👀 ${value.toLocaleString("ru-RU")} ${plural(value)}`;
+    }
+  }
+
+  // ===== Счётчик =====
+  // Загрузка текущих значений
+  products.forEach(p => {
+    fetch(`${COUNTER_API}/get/${COUNTER_NS}/${p.id}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => d && showViews(p.id, d.value))
+      .catch(() => {});
+  });
+
+  // +1 при открытии продукта
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a.card");
+    if (!a) return;
+    const id = a.dataset.id;
+    fetch(`${COUNTER_API}/hit/${COUNTER_NS}/${id}`, { keepalive: true })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => d && showViews(id, d.value))
+      .catch(() => {});
+  });
+</script>
+</body>
+</html>
