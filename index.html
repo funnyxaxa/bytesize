@@ -10,14 +10,14 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c4dff'/><text x='50' y='72' font-size='64' font-family='Arial' font-weight='900' fill='white' text-anchor='middle'>B</text></svg>">
 <style>
   :root {
-    --bg: #0f0c1d;
-    --card: #1a1630;
-    --card-hover: #221d3d;
-    --text: #f3f1ff;
-    --muted: #a59fc7;
+    --bg: #f6f5fb;
+    --card: #ffffff;
+    --text: #1b1733;
+    --muted: #6b6588;
+    --line: #e8e5f3;
     --accent1: #8b5cf6;
     --accent2: #22d3ee;
-    --free: #22c55e;
+    --free: #16a34a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -27,48 +27,57 @@
     line-height: 1.45;
     min-height: 100vh;
   }
-  .wrap { max-width: 560px; margin: 0 auto; padding: 32px 16px 48px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 36px 18px 56px; }
 
-  header { text-align: center; margin-bottom: 28px; }
+  header { text-align: center; margin-bottom: 30px; }
   .logo {
     width: 84px; height: 84px; margin: 0 auto 14px;
     border-radius: 22px;
     background: linear-gradient(135deg, var(--accent1), #6366f1 55%, var(--accent2));
     display: flex; align-items: center; justify-content: center;
     font-size: 52px; font-weight: 900; color: #fff;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, .35);
+    box-shadow: 0 10px 28px rgba(139, 92, 246, .30);
   }
-  h1 { font-size: 26px; font-weight: 800; }
+  h1 { font-size: 28px; font-weight: 800; }
   .tagline { color: var(--muted); margin-top: 6px; font-size: 15px; }
   .socials { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
   .socials a {
-    color: var(--text); text-decoration: none; font-size: 14px;
+    color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600;
     padding: 8px 14px; border-radius: 999px;
-    background: var(--card); border: 1px solid #2c2650;
+    background: var(--card); border: 1px solid var(--line);
+    box-shadow: 0 1px 3px rgba(27, 23, 51, .05);
   }
-  .socials a:hover { background: var(--card-hover); }
+  .socials a:hover { border-color: #cfc6f5; }
 
-  .section-title { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 26px 4px 12px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 28px 4px 12px; }
+
+  /* Products in a row: 4 per row on desktop, 2 on tablet, 1 on phone */
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  #free.grid { grid-template-columns: 1fr; }
+  #free .card h2 { font-size: 20px; }
 
   .card {
-    display: block; text-decoration: none; color: inherit;
-    background: var(--card); border: 1px solid #2c2650;
-    border-radius: 18px; overflow: hidden; margin-bottom: 14px;
-    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(27, 23, 51, .06);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   }
-  .card:hover { transform: translateY(-2px); background: var(--card-hover); border-color: #4c3f8f; }
-  .card img { width: 100%; aspect-ratio: 5 / 2; object-fit: cover; display: block; background: #241f40; }
-  .card-body { padding: 14px 16px 16px; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(91, 61, 196, .14); border-color: #d6ccfa; }
+  .card img { width: 100%; aspect-ratio: 5 / 2; object-fit: cover; display: block; background: #ece9f7; }
+  .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
   .badge {
-    display: inline-block; font-size: 12px; font-weight: 700;
+    align-self: flex-start; font-size: 12px; font-weight: 700;
     padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
-    background: rgba(139, 92, 246, .18); color: #c4b5fd;
+    background: #f1ebff; color: #6d28d9;
   }
-  .badge.free { background: rgba(34, 197, 94, .15); color: #86efac; }
-  .badge.hit { background: rgba(34, 211, 238, .15); color: #67e8f9; }
+  .badge.free { background: #dcfce7; color: #15803d; }
+  .badge.hit { background: #cffafe; color: #0e7490; }
   .card h2 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
   .card p { color: var(--muted); font-size: 14px; }
-  .card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; gap: 10px; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; gap: 10px; }
   .price { font-size: 20px; font-weight: 800; }
   .price.free { color: var(--free); }
   .views { font-size: 13px; color: var(--muted); white-space: nowrap; }
@@ -79,7 +88,7 @@
     white-space: nowrap;
   }
 
-  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 34px; }
   footer a { color: var(--muted); }
 </style>
 </head>
@@ -98,10 +107,10 @@
   </header>
 
   <div class="section-title">Бесплатно</div>
-  <div id="free"></div>
+  <div id="free" class="grid"></div>
 
   <div class="section-title">Гайды и курсы</div>
-  <div id="paid"></div>
+  <div id="paid" class="grid"></div>
 
   <footer>
     Оплата и доступ — через <a href="https://lava.top" target="_blank" rel="noopener">lava.top</a><br>
