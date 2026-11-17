@@ -227,11 +227,12 @@
   // ===== Посещения (не показываются посетителям, смотреть на stats.html) =====
   // visits   — каждое открытие страницы
   // visitors — один раз на браузер (примерно «уникальные люди»)
-  fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visits`).catch(() => {});
+  fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visits`, { keepalive: true }).catch(() => {});
   try {
-    if (!localStorage.getItem("bs_seen")) {
-      localStorage.setItem("bs_seen", "1");
-      fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visitors`).catch(() => {});
+    if (!localStorage.getItem("bs_seen2")) {
+      fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visitors`, { keepalive: true })
+        .then(r => { if (r.ok) localStorage.setItem("bs_seen2", "1"); })
+        .catch(() => {});
     }
   } catch (e) {}
 
