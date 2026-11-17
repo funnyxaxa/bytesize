@@ -224,6 +224,17 @@
     }
   }
 
+  // ===== Посещения (не показываются посетителям, смотреть на stats.html) =====
+  // visits   — каждое открытие страницы
+  // visitors — один раз на браузер (примерно «уникальные люди»)
+  fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visits`).catch(() => {});
+  try {
+    if (!localStorage.getItem("bs_seen")) {
+      localStorage.setItem("bs_seen", "1");
+      fetch(`${COUNTER_API}/hit/${COUNTER_NS}/visitors`).catch(() => {});
+    }
+  } catch (e) {}
+
   // ===== Счётчик =====
   // Загрузка текущих значений
   products.forEach(p => {

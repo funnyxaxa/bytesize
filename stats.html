@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Статистика витрины</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: #f6f5fb; color: #1b1733; margin: 0; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 32px 18px; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .muted { color: #6b6588; font-size: 14px; }
+  .big { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0; }
+  .tile { background: #fff; border: 1px solid #e8e5f3; border-radius: 16px; padding: 16px; }
+  .tile b { display: block; font-size: 34px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e8e5f3; border-radius: 16px; overflow: hidden; }
+  td { padding: 12px 14px; border-top: 1px solid #f0eef8; font-size: 15px; }
+  tr:first-child td { border-top: 0; }
+  td:last-child { text-align: right; font-weight: 700; }
+  button { margin-top: 16px; padding: 10px 16px; border: 0; border-radius: 12px; font-weight: 700;
+           background: linear-gradient(135deg, #8b5cf6, #22d3ee); color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Статистика витрины</h1>
+  <div class="muted">Считается с 17.11.2026. Обновите страницу, чтобы увидеть свежие цифры.</div>
+
+  <div class="big">
+    <div class="tile"><b id="visitors">…</b>человек открыли<br><span class="muted">(1 раз на браузер)</span></div>
+    <div class="tile"><b id="visits">…</b>открытий всего<br><span class="muted">(с повторными)</span></div>
+  </div>
+
+  <h1 style="font-size:18px">Нажали на продукт</h1>
+  <table id="products"></table>
+
+  <button onclick="location.reload()">Обновить</button>
+</div>
+<script>
+  const API = "https://abacus.jasoncameron.dev/get/bytesize-vitrina/";
+  const products = [
+    ["chatgpt-iphone", "ChatGPT на iPhone (бесплатно)"],
+    ["vpn-bot", "VPN + бот для оплат"],
+    ["vpn-panel", "VPN-панель на 3x-ui"],
+    ["youtube-ai", "YouTube без лица и голоса"],
+    ["mortgage-ai", "Переплата по ипотеке"]
+  ];
+  const get = key => fetch(API + key).then(r => r.ok ? r.json() : { value: 0 }).then(d => d.value || 0).catch(() => "—");
+
+  get("visitors").then(v => document.getElementById("visitors").textContent = v);
+  get("visits").then(v => document.getElementById("visits").textContent = v);
+  const table = document.getElementById("products");
+  products.forEach(([id, name]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${name}</td><td>…</td>`;
+    table.appendChild(tr);
+    get(id).then(v => tr.lastChild.textContent = v);
+  });
+</script>
+</body>
+</html>
